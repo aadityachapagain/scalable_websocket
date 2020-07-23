@@ -42,6 +42,7 @@ def main():
     tornado.options.parse_command_line()
     app = Application()
     app.listen(options.port)
+    logging.info("application server started ...")
     tornado.ioloop.IOLoop.current().start()
 
 
