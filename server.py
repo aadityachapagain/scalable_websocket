@@ -4,10 +4,10 @@ import tornado.websocket
 import tornado.ioloop
 import tornado.options
 import uuid
-
+import time
 from tornado.options import define, options
 
-define("port", default=3000, help="run on the given port", type=int)
+define("port", default=10001, help="run on the given port", type=int)
 
 def _get_rand_id():
     return str(uuid.uuid4())
@@ -35,6 +35,7 @@ class MainHandler(tornado.websocket.WebSocketHandler):
 
     def on_message(self, message):
         logging.info("message from {}: {}".format(self.unique_id, message))
+        time.sleep(1)
         self.write_message(' {} : {}'.format(self.unique_id, message))
 
 
