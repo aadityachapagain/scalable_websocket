@@ -30,7 +30,7 @@ def clean_client_timeout_fn(_id):
     gc.collect()
 
 class Client(object):   
-    def __init__(self, url, timeout, conn_timeout_callback, soc_id, signal_ping: False):
+    def __init__(self, url, timeout, conn_timeout_callback, soc_id, signal_ping = False):
         self.url = url
         self.soc_id = soc_id
         self.timeout = timeout
@@ -75,6 +75,7 @@ class Client(object):
                 self.ws = None
                 break
             self.state.append(msg)
+            print('recieved msg from: ',self.soc_id)
 
     def keep_alive(self):
         if self.ws is None:
