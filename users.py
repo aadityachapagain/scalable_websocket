@@ -6,5 +6,3 @@ users_db = {
         "disabled": False,
     },
 }
-
-__password = "6CFembodied#12$"
